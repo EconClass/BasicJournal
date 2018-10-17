@@ -1,4 +1,7 @@
 //========================================INITIAL========================================\\
+if (!process.env.PORT) {
+    dotenv = require('dotenv').config();
+};
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -13,16 +16,20 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const entries = require('./controllers/entries.js');
+const news = require('./controllers/news.js');
+const notes = require('./controllers/notes.js');
 
 //========================================MIDDLEWARE========================================\\
 app.engine('hbs', exphbs.engine);
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/StoryBoard', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/BasicJournal', { useNewUrlParser: true });
 
 //========================================USE ROUTES========================================\\
 app.use(entries);
+app.use(news);
+app.use(notes);
 
 //==========================================LISTEN==========================================\\
 app.listen(port, () => {
