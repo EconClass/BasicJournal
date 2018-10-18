@@ -4,12 +4,14 @@ const Note = require('../models/note.js');
 
 //NEW
 app.get('/notes/new', (req, res) =>{
+    Note.find({ newsId: req.params.id }).then( )
     res.render('note-new.hbs', {});
 });
 
 //CREATE
 app.post('/notes', (req, res) => {
     Note.create(req.body).then(notes => {
+        console.log(notes);
         res.redirect('/');
     }).catch(err => {
         console.log(err.message);

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const timestamps = require('mongoose-timestamp');
 
 const NoteSchema = new Schema({
-    title: String,
+    newsId: {type: String, required: true},
     remarks: String,
 });
 NoteSchema.plugin(timestamps);

@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const Entry = require('../models/entry.js');
 
-//NEW
-app.get('/entries/new', (req, res) =>{
-    res.render('entry-new.hbs', {});
-});
+// //NEW
+// app.get('/news/:title/entries/new', (req, res) =>{
+//     Entry.find({newsId: req.params.title}).then(news =>{
+//         res.render('entry-new.hbs', {news, newsId: req.params.title});
+//     });
+// });
 
 //CREATE
 app.post('/entries', (req, res) => {

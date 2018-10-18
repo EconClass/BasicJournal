@@ -3,13 +3,20 @@
         <div class="col-md-3">
             <div class="leftside">
                 <div class="form-group">
-
                     <h2><label for="entry-list">Journal Entries</label></h2>
                     <ul class="list-group">
                         {{#each entries}}
-                        <li class="list-group-item"><a href="/entries/{{this._id}}">{{this.title}}</a></li>
+                            <li class="list-group-item bg-primary">
+                                <strong>
+                                    <a class="text-white" href="/entries/{{this._id}}">{{this.title}}</a>
+                                </strong>
+                            </li>
                         {{/each}}
-                        <li class="list-group-item"><a href="/entries/new">New Entry</a></li>
+                        <li class="list-group-item bg-primary">
+                            <strong>
+                                <a class="text-white" href="/entries/new">New Entry</a>
+                            </strong>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -19,11 +26,14 @@
                 <h1 align="center">Today's Headlines</h1>
                 <div class="card-columns">
                     {{#each news}}
-                        <div class="card text-white bg-info mb-3" >
-                            <a href="{{this.url}}"><img class="card-img-top" src="{{this.urlToImage}}" alt="Card image cap"></a>
-                            <h4 class="card-title">{{this.title}}</h4>
-                            <h6 class="card-text">{{this.author}}</h6>
-                            <a href="/notes/new" class="btn btn-primary">Take Notes</a>
+                        <div class="card text-white bg-primary mb-3" id="{{this.title}}">
+                            <a href="{{this.url}}"><img class="card-img-top p-1" src="{{this.urlToImage}}" alt="Card image cap"></a>
+                            <strong><h4 class="card-title p-2">{{this.title}}</h4></strong>
+                            <h6 class="card-text p-2">{{this.author}}</h6>
+                            <div class="p-1">
+                                <a href="/new" class="btn text-primary btn-light p-1">See Article</a>
+                            </div>
+                            {{!-- <button class="btn text-primary btn-light" type="submit">Save Article</button> --}}
                         </div>
                     {{/each}}
                 </div>
