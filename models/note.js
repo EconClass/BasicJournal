@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 const timestamps = require('mongoose-timestamp');
 
 const NoteSchema = new Schema({
-    newsId: {type: String, required: true},
-    remarks: String,
+    title: {type: Schema.Types.String, ref: 'Article'},
+    noteTitle: String,
+    content: String,
+    articleId: {type: String, required: true}
 });
+
 NoteSchema.plugin(timestamps);
 Note = mongoose.model('Note', NoteSchema);
 

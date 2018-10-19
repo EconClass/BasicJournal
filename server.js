@@ -15,9 +15,8 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
-const entries = require('./controllers/entries.js');
 const news = require('./controllers/news.js');
-const notes = require('./controllers/notes.js');
+const articles = require('./controllers/articles.js');
 
 //========================================MIDDLEWARE========================================\\
 app.engine('hbs', exphbs.engine);
@@ -27,9 +26,8 @@ app.use(methodOverride('_method'));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/BasicJournal', { useNewUrlParser: true });
 
 //========================================USE ROUTES========================================\\
-app.use(entries);
 app.use(news);
-app.use(notes);
+app.use(articles);
 
 //==========================================LISTEN==========================================\\
 app.listen(port, () => {
