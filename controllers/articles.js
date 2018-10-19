@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const Article = require('../models/article.js');
+const Note = require('../models/note.js');
 
 // NEW
-app.get('/articles/:id/notes/new', (req, res) => {
-    Article.find({ _id: req.params.id }).then( article => {
-        res.render('note-new.hbs', { article, _id: req.params.id });
-    });
-});
+// app.get('/articles/:id/notes/new', (req, res) => {
+//     Article.find({ _id: req.params.id }).then( article => {
+//         res.render('note-new.hbs', { article, _id: req.params.id });
+//     });
+// });
 
 // CREATE
 app.post('/', (req, res) => {
@@ -22,9 +23,12 @@ app.post('/', (req, res) => {
 // SHOW
 app.get('/articles/:id', (req, res) => {
     Article.findById(req.params.id).then(article => {
-        res.render('article-show.hbs', { article: article })
-    }).catch((err) => {
-        console.log(err.message);
+        Note.find({ articleId : req.params.id}).then(note => {
+            // res.send(note);
+            res.render('article-show.hbs', { article: article, note: note })
+        }).catch((err) => {
+            console.log(err.message);
+        });
     });
 });
 

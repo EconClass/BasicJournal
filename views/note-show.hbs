@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{note.note.Title}}</h1>
+        <p>{{note.content}}</p>
+        <div class="pb-3">
+            <a href="/notes/{{note._id}}/edit" class="btn text-white btn-primary">Edit</a>
+        </div>
+        <div>
+            <form action="/articles/{{note.articleId}}/reviews/{{note._id}}?_method=DELETE" method="POST">
+                <button class="btn text-primary btn-white" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>

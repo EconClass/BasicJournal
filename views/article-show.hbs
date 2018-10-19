@@ -11,10 +11,10 @@
         </form></div>
 
         <hr>
-
-        <div>
+        <h1>Notes</h1>
+        <div class="card">
             {{#each note}}
-                <h3>{{this.noteTitle}}</h3>
+                <a href="/notes/{{this._id}}"><h3 class="card-title">{{this.noteTitle}}</h3></a>
             {{/each}}
         </div>
     </div>

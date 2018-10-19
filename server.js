@@ -17,6 +17,7 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const news = require('./controllers/news.js');
 const articles = require('./controllers/articles.js');
+const notes = require('./controllers/notes.js');
 
 //========================================MIDDLEWARE========================================\\
 app.engine('hbs', exphbs.engine);
@@ -28,6 +29,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/BasicJournal', 
 //========================================USE ROUTES========================================\\
 app.use(news);
 app.use(articles);
+app.use(notes);
 
 //==========================================LISTEN==========================================\\
 app.listen(port, () => {
