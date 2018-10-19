@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <input type="hidden" value="{{article._id}}" name="articleId">
+        <form method="POST" action="/articles/{{article._id}}/notes">
+            {{> note-form}}
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Save Note</button>
+            </div>
+        </form>
+       
+    </div>
+</div>

@@ -3,20 +3,20 @@
         <div class="col-md-3">
             <div class="leftside">
                 <div class="form-group">
-                    <h2><label for="entry-list">Journal Entries</label></h2>
+                    <h2><label for="entry-list">Saved Articles</label></h2>
                     <ul class="list-group">
-                        {{#each entries}}
+                        {{#each article}}
                             <li class="list-group-item bg-primary">
                                 <strong>
-                                    <a class="text-white" href="/entries/{{this._id}}">{{this.title}}</a>
+                                    <a class="text-white" href="/articles/{{this._id}}">{{this.title}}</a>
                                 </strong>
                             </li>
                         {{/each}}
-                        <li class="list-group-item bg-primary">
+                        {{!-- <li class="list-group-item bg-primary">
                             <strong>
                                 <a class="text-white" href="/entries/new">New Entry</a>
                             </strong>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -31,9 +31,8 @@
                             <strong><h4 class="card-title p-2">{{this.title}}</h4></strong>
                             <h6 class="card-text p-2">{{this.author}}</h6>
                             <div class="p-1">
-                                <a href="/new" class="btn text-primary btn-light p-1">See Article</a>
+                                <a href="/new/{{@index}}" class="btn text-primary btn-light p-1">See Article</a>
                             </div>
-                            {{!-- <button class="btn text-primary btn-light" type="submit">Save Article</button> --}}
                         </div>
                     {{/each}}
                 </div>

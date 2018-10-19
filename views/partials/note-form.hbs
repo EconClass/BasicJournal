@@ -1,0 +1,20 @@
+<fieldset>
+    <legend>Note</legend>
+    <!-- TITLE -->
+    <div class="form-group">
+        <label for="article-title">{{note.title}}</label><br>
+    </div>
+
+    <!-- NOTE TITLE -->
+    <div class="form-group">
+        <label for="note-title">Title</label><br>
+        <input class="form-control" id="note-title" type="text" name="noteTitle" value="{{note.noteTitle}}" />
+    </div>
+
+    <!-- CONTENT -->
+    <div class="form-group">
+        <label for="note-content">Content</label><br>
+        <textarea class="form-control" id="note-content" name="content" rows="25" />{{note.content}}</textarea>
+    </div>
+    <input type="hidden" name="articleId" id="{{article._id}}">
+</fieldset>
