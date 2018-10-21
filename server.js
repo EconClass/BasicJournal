@@ -24,7 +24,7 @@ app.engine('hbs', exphbs.engine);
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/BasicJournal', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/basic-journal-zo', { useNewUrlParser: true });
 
 //========================================USE ROUTES========================================\\
 app.use(news);
