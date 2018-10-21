@@ -1,12 +1,11 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-        <p>{{articleId}}</p>
         <form method="POST" action="/articles/{{articleId}}/notes">
-        <input type="hidden" value="{{articleId}}" name="articleId">
             {{> note-form}}
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Save Note</button>
             </div>
+            <input type="hidden" value="{{articleId}}" name="articleId">
         </form>
     </div>
 </div>

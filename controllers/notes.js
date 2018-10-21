@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-// const Article = require('../models/article.js');
 const Note = require('../models/note.js');
 
 // NEW
@@ -21,7 +20,7 @@ app.post('/articles/:id/notes', (req, res) => {
 });
 
 // SHOW
-app.get('/notes/:id', (req, res) => {
+app.get('/articles/:id/notes/:id', (req, res) => {
     Note.findById(req.params.id).then(note => {
         res.render('note-show.hbs', { note: note });
     }).catch((err) => {
@@ -30,7 +29,7 @@ app.get('/notes/:id', (req, res) => {
 });
 
 // EDIT
-app.get('/notes/:id/edit', (req, res) => {
+app.get('/articles/:id/notes/:id/edit', (req, res) => {
     Note.findById(req.params.id).then( note => {
         res.render('note-edit.hbs', {note: note});
     }).catch(err => {
@@ -39,18 +38,18 @@ app.get('/notes/:id/edit', (req, res) => {
 });
   
 // UPDATE
-app.put('/notes/:id', (req, res) => {
-    Note.findByIdAndUpdate(req.params.id, req.body).then(note => {
+app.put('/articles/:id/notes/:id', (req, res) => {
+    Note.findOneAndUpdate({id: req.params.id}, req.body).then(note => {
         // res.send(note);
-        res.redirect(`/articles/${note.articleId}/note/${note._id}`);
+        res.redirect(`/articles/${note.articleId}/notes/${note._id}`);
     }).catch(err => {
         console.log(err.message);
     });
 });
   
 // DELETE
-app.delete('/notes/:id', (req, res) => {
-    Note.findByIdAndDelete(req.params.id).then(note => {
+app.delete('/articles/:id/notes/:id', (req, res) => {
+    Note.findOneAndDelete({id: req.params.id}).then(note => {
         res.redirect(`/articles/${note.articleId}`);
     }).catch((err) => {
         console.log(err.message);
