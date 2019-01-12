@@ -17,4 +17,4 @@ RESTful architecture web app designed to help take note on various online news a
 
 ## Product
 
-Link to live website <a href="#">here</a>.
+Link to live website <a href="https://basic-journal-zo.herokuapp.com">here</a>.
